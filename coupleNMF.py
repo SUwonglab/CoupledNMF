@@ -140,7 +140,7 @@ for i in range(K):
 perm = list(itertools.permutations(range(K)))
 score = np.zeros(len(perm))
 for i in range(len(perm)):
-        score[i] = np.trace(np.dot(np.dot(np.transpose(WP2),A),WP1))
+        score[i] = np.trace(np.dot(np.dot(np.transpose(WP2[:, perm[i]]),A),WP1))
 
 match = np.argmax(score)
 W20 = W20[:,perm[match]]
